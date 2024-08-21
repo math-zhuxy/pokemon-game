@@ -1,5 +1,5 @@
-# pokemon-game
-This is a front-end Pokémon game. It can run without installing anything.
+# About this project
+This is a front-end Pokémon game. It can run without installing anything. This project mainly use javascript language. Game materials come from the internet or other projects on github.
 # quick start
 Double click game.html file to start the game.
 # game beginner's tutorial
