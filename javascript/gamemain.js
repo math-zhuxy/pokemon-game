@@ -125,6 +125,57 @@ function GameMainFunction(){
     player.draw();
     foreground.draw();
     playerdata.draw();
+
+    // 检测是否靠近箱子
+    if (!Box_1.isPrompted && rectangleCollision({ r1: player, r2: Box_1 }) &&!Box_1.isopened) {
+        showNonBlockingAlert("你遇到了一个宝藏，点击M键即可打开");
+        Box_1.isPrompted = true;
+    } else if (Box_1.isPrompted &&!rectangleCollision({ r1: player, r2: Box_1 })) {
+        hideNonBlockingAlert();
+        Box_1.isPrompted = false;
+    }
+    if (!Box_2.isPrompted && rectangleCollision({ r1: player, r2: Box_2 }) &&!Box_2.isopened) {
+        showNonBlockingAlert("你遇到了一个宝藏，点击M键即可打开");
+        Box_2.isPrompted = true;
+    } else if (Box_2.isPrompted &&!rectangleCollision({ r1: player, r2: Box_2 })) {
+        hideNonBlockingAlert();
+        Box_2.isPrompted = false;
+    }
+
+    // 检测是否靠近NPC
+    if (!villagerNPC.isPrompted && rectangleCollision({ r1: player, r2: villagerNPC })) {
+        showNonBlockingAlert("你遇到了一个NPC，点击M键即可对话");
+        villagerNPC.isPrompted = true;
+    } else if (villagerNPC.isPrompted &&!rectangleCollision({ r1: player, r2: villagerNPC })) {
+        hideNonBlockingAlert();
+        villagerNPC.isPrompted = false;
+    }
+
+    // 检测是否靠近商店入口
+    if (!ShopEntry.isPrompted && rectangleCollision({ r1: player, r2: ShopEntry })) {
+        showNonBlockingAlert("你遇到了一个商店，点击M键即可进入");
+        ShopEntry.isPrompted = true;
+    } else if (ShopEntry.isPrompted &&!rectangleCollision({ r1: player, r2: ShopEntry })) {
+        hideNonBlockingAlert();
+        ShopEntry.isPrompted = false;
+    }
+
+    // 检测是否靠近战斗区域
+    if (!battlefield_1.isPrompted && rectangleCollision({ r1: player, r2: battlefield_1 })) {
+        showNonBlockingAlert("你遇到了一个怪兽，点击M键即可进行战斗");
+        battlefield_1.isPrompted = true;
+    } else if (battlefield_1.isPrompted &&!rectangleCollision({ r1: player, r2: battlefield_1 })) {
+        hideNonBlockingAlert();
+        battlefield_1.isPrompted = false;
+    }
+    if (!battlefield_2.isPrompted && rectangleCollision({ r1: player, r2: battlefield_2 })) {
+        showNonBlockingAlert("你遇到了一个怪兽，点击M键即可进行战斗");
+        battlefield_2.isPrompted = true;
+    } else if (battlefield_2.isPrompted &&!rectangleCollision({ r1: player, r2: battlefield_2 })) {
+        hideNonBlockingAlert();
+        battlefield_2.isPrompted = false;
+    }
+    
     if(keys.m.pressed&&rectangleCollision({r1:player,r2:Box_1})){
         if(Box_1.isopened===false){
             playerdata.money+=12;

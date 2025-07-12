@@ -56,6 +56,7 @@ class BOX{
         this.isopened=false;
         this.width=75;
         this.height=75;
+        this.isPrompted=false;
     }
     draw(){
         if(this.isopened===true){
@@ -71,6 +72,7 @@ class BattleField{
         this.position=position;
         this.width=88;
         this.height=84;
+        this.isPrompted = false; // 添加提示标记
     }
     draw(){
         ctx.drawImage(battlefieldImage,this.position.x,this.position.y);
@@ -128,6 +130,7 @@ class CarpetBoundary{
         this.position=position;
         this.width=CarpetBoundary.width;
         this.height=CarpetBoundary.height;
+        this.isPrompted = false; // 添加提示标记
     }
     draw(){
         ctx.drawImage(carpetImage,this.position.x,this.position.y);
@@ -298,6 +301,7 @@ class GameNpcs{
         this.str_2=str_2;
         this.str_3=str_3;
         this.str_4=str_4;
+        this.isPrompted = false; // 添加提示标记
     }
     draw(){
         ctx.drawImage(this.image,this.position.x,this.position.y,50,60);
@@ -344,4 +348,19 @@ class GameShopItems{
         ctx.lineWidth = 10;
         ctx.strokeRect(this.position.x, this.position.y, this.width, this.height);
     }
+}
+
+
+//显示提示框函数
+function showNonBlockingAlert(message) {
+    const alertDiv = document.getElementById('nonBlockingAlert');
+    const alertMessage = document.getElementById('alertMessage');
+    alertMessage.textContent = message;
+    alertDiv.style.display = 'block';
+}
+
+//隐藏提示框函数
+function hideNonBlockingAlert() {
+    const alertDiv = document.getElementById('nonBlockingAlert');
+    alertDiv.style.display = 'none';
 }

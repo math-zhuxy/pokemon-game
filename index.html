@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="UTF-8">
 <head>
-    <meta charset="zh-CN">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAME</title>
     <link rel="stylesheet" href="./css/game.css">
 </head>
 <body>
     <canvas id="gamecanvas"></canvas>
+    <!-- 提示框 -->
+    <div id="nonBlockingAlert" style="display: none; position: fixed; top: 10px; left: 50%; transform: translateX(-50%); background-color: white; border: 1px solid black; padding: 10px;">
+        <p id="alertMessage"></p>
+    </div>
     <script src="./javascript/collisions.js"></script>
     <script src="./javascript/classes.js"></script>
     <script src="./javascript/gamemain.js"></script>
